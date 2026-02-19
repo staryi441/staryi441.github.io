@@ -93,6 +93,12 @@ a:hover {
   padding: 15px;
   background-color: #1a1a1a;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
 }
 
 .project-card .tech {
@@ -114,6 +120,27 @@ a:hover {
   padding: 15px;
   background-color: #1a1a1a;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.roadmap-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.roadmap-card {
+  flex: 1 1 250px;
+  background-color: #1a1a1a;
+  border: 1px solid #444;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.roadmap-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
 }
 
 .contact-list {
