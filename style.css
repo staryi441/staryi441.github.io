@@ -1,0 +1,138 @@
+body {
+  background-color: #111;
+  color: #eee;
+  font-family: 'Fira Code', monospace;
+  margin: 0;
+  padding: 0 20px;
+}
+
+.section {
+  margin-bottom: 60px;
+}
+
+h1 {
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+h4 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+p {
+  line-height: 1.6;
+}
+
+a {
+  color: #7a44f5;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #9b6cff;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.buttons {
+  margin-top: 15px;
+}
+
+.btn {
+  background-color: #7a44f5;
+  color: #111;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  display: inline-block;
+  margin: 5px;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #9b6cff;
+  transform: scale(1.05);
+}
+
+.about-card {
+  border: 1px solid #444;
+  border-radius: 12px;
+  padding: 20px;
+  background-color: #1a1a1a;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.projects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.project-card {
+  flex: 1 1 300px;
+  border: 1px solid #444;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #1a1a1a;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.project-card .tech {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.stack-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.stack-card {
+  flex: 1 1 250px;
+  border: 1px solid #444;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #1a1a1a;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.contact-list {
+  list-style: disc inside;
+  margin-bottom: 15px;
+}
+
+.contact-list li {
+  margin-bottom: 5px;
+}
+
+/* Fade animation */
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.7s ease-in-out;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
