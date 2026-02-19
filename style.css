@@ -1,3 +1,4 @@
+/* ===== Общие стили ===== */
 body {
   background-color: #111;
   color: #eee;
@@ -6,7 +7,6 @@ body {
   padding: 0 15px;
 }
 
-/* Секции */
 .section { margin-bottom: 60px; }
 
 h1 { font-size: 3rem; text-align: center; margin-bottom: 10px; }
@@ -18,10 +18,11 @@ p { line-height: 1.6; }
 a { color: #7a44f5; text-decoration: none; transition: color 0.3s; }
 a:hover { color: #9b6cff; }
 
+/* ===== Hero ===== */
 .hero { text-align: center; margin-bottom: 40px; }
 .buttons { margin-top: 15px; flex-wrap: wrap; display: flex; justify-content: center; }
 
-/* Кнопки */
+/* ===== Кнопки ===== */
 .btn {
   background-color: #7a44f5;
   color: #111;
@@ -32,10 +33,9 @@ a:hover { color: #9b6cff; }
   margin: 5px;
   transition: transform 0.2s, background-color 0.3s;
 }
-
 .btn:hover { background-color: #9b6cff; transform: scale(1.05); }
 
-/* Обо мне */
+/* ===== Обо мне ===== */
 .about-card {
   border: 1px solid #444;
   border-radius: 12px;
@@ -56,7 +56,7 @@ a:hover { color: #9b6cff; }
 
 .project-card {
   position: relative;
-  flex: 1 1 300px; /* flex-grow | flex-shrink | flex-basis */
+  flex: 1 1 300px;
   max-width: 100%;
   border: 1px solid #444;
   border-radius: 12px;
@@ -67,13 +67,13 @@ a:hover { color: #9b6cff; }
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s;
 }
-
 .project-card:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(0,0,0,0.6); }
 
 .project-card .project-short { font-size: 0.95rem; color: #aaa; margin-bottom: 8px; transition: opacity 0.3s; }
 
 .project-card .project-full {
-  position: absolute; top: 0; left: 0;
+  position: absolute;
+  top: 0; left: 0;
   width: 100%; height: 100%;
   background-color: rgba(18,18,18,0.95);
   color: #eee;
@@ -85,7 +85,6 @@ a:hover { color: #9b6cff; }
   transform: scale(0.95);
   transition: opacity 0.3s, transform 0.3s;
 }
-
 .project-card:hover .project-full { opacity: 1; transform: scale(1); }
 
 .project-card .tech { font-size: 0.9rem; color: #aaa; margin-top: 5px; }
@@ -105,7 +104,7 @@ a:hover { color: #9b6cff; }
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-/* ===== Roadmap ===== */
+/* ===== Roadmap / Цели ===== */
 .roadmap-cards { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
 .roadmap-card {
   flex: 1 1 250px;
@@ -117,7 +116,6 @@ a:hover { color: #9b6cff; }
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   transition: transform 0.3s, box-shadow 0.3s;
 }
-
 .roadmap-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.5); }
 
 /* ===== Контакты ===== */
@@ -128,7 +126,7 @@ a:hover { color: #9b6cff; }
 .fade { opacity: 0; transform: translateY(20px); transition: all 0.7s ease-in-out; }
 .fade.show { opacity: 1; transform: translateY(0); }
 
-/* ===== Media Queries для мобильных ===== */
+/* ===== Адаптивность под мобильные ===== */
 @media (max-width: 768px) {
   h1 { font-size: 2.5rem; }
   h2 { font-size: 1.7rem; }
@@ -139,5 +137,21 @@ a:hover { color: #9b6cff; }
 
   .project-card, .stack-card, .roadmap-card {
     flex: 1 1 100%;
+  }
+
+  /* Исправляем overlay на мобильных */
+  .project-card .project-full {
+    position: relative;
+    opacity: 1;
+    transform: scale(1);
+    background-color: #1a1a1a;
+    padding: 15px;
+    height: auto;
+  }
+  .project-card:hover .project-full { transform: none; }
+
+  .project-card .project-full .btn {
+    padding: 8px 15px;
+    font-size: 0.9rem;
   }
 }
