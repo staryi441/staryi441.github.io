@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WorkTracker — Трекер Смен</title>
+    <title>WorkTracker — Скачать трекер смен</title>
     <style>
+        /* AMOLED Black Основа */
         body {
             background-color: #000000;
             color: #FFFFFF;
@@ -24,10 +25,13 @@
             text-decoration: none;
             font-size: 14px;
             margin-bottom: 30px;
+            transition: opacity 0.2s ease;
         }
+        .back-link:hover { opacity: 0.8; }
 
+        /* Карточка приложения */
         .app-card {
-            max-width: 500px;
+            max-width: 480px;
             width: 100%;
             background-color: #121212;
             border: 1px solid #222222;
@@ -35,72 +39,114 @@
             padding: 32px;
             box-sizing: border-box;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.7);
         }
 
         h1 {
             font-size: 32px;
             font-weight: 800;
             margin: 0 0 6px 0;
+            letter-spacing: -0.5px;
         }
 
-        .version {
-            color: #888888;
-            font-size: 14px;
+        .version-badge {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            color: #00E5FF;
+            background-color: rgba(0, 229, 255, 0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
             margin-bottom: 24px;
         }
 
-        /* Сетка фич */
+        /* Список возможностей */
         .features {
             text-align: left;
-            margin: 24px 0;
+            margin: 24px 0 32px 0;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 14px;
         }
 
         .feature-item {
             display: flex;
-            align-items: center;
-            gap: 10px;
+            align-items: flex-start;
+            gap: 12px;
             font-size: 15px;
             color: #E0E0E0;
+            line-height: 1.4;
         }
 
         .dot {
             width: 8px;
             height: 8px;
             border-radius: 50%;
+            margin-top: 6px;
+            flex-shrink: 0;
         }
         .dot.blue { background-color: #00E5FF; }
         .dot.green { background-color: #00E676; }
         .dot.red { background-color: #FFFF1744; }
 
-        /* Кнопка скачивания APK */
-        .download-btn {
-            display: block;
-            background-color: #00E5FF;
-            color: #000000;
+        /* Контейнер кнопок скачивания */
+        .download-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* Общий стиль для кнопок */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             text-decoration: none;
             font-weight: 700;
+            font-size: 16px;
             padding: 16px;
-            border-radius: 12px;
-            margin-top: 24px;
-            transition: opacity 0.2s ease;
+            border-radius: 14px;
+            transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+            box-sizing: border-box;
         }
 
-        .download-btn:hover {
-            opacity: 0.9;
+        .btn:active {
+            transform: scale(0.98);
         }
 
-        .source-btn {
-            display: block;
-            color: #888888;
-            text-decoration: none;
-            font-size: 14px;
-            margin-top: 16px;
+        /* Кнопка GitHub (Прямая загрузка APK) */
+        .btn-github {
+            background-color: #FFFFFF;
+            color: #000000;
         }
-        .source-btn:hover { color: #FFFFFF; }
+        .btn-github:hover {
+            background-color: #E5E5E5;
+        }
+
+        /* Кнопка RuStore (Стиль под неон стора) */
+        .btn-rustore {
+            background-color: transparent;
+            color: #FFFFFF;
+            border: 1px solid #00E5FF;
+        }
+        .btn-rustore:hover {
+            background-color: rgba(0, 229, 255, 0.05);
+        }
+
+        /* Иконки встроенные через SVG, чтобы не грузить картинки */
+        .btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .update-note {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #666666;
+            line-height: 1.4;
+        }
     </style>
 </head>
 <body>
@@ -109,32 +155,44 @@
 
     <div class="app-card">
         <h1>WorkTracker</h1>
-        <div class="version">v2.0 • Android App</div>
+        <div class="version-badge">Актуальный релиз</div>
 
         <div class="features">
             <div class="feature-item">
                 <span class="dot blue"></span>
-                <span>Чистый чистый AMOLED интерфейс</span>
+                <span>Чистый AMOLED интерфейс без скрытых рамок и линий.</span>
             </div>
             <div class="feature-item">
                 <span class="dot green"></span>
-                <span>Автоматическая генерация смен вперёд (3/2, 5/2, кастом)</span>
+                <span>Автогенерация смен вперед по паттернам (3/2, 5/2, кастом).</span>
             </div>
             <div class="feature-item">
                 <span class="dot green"></span>
-                <span>Расчет зарплаты (фикса или почасовая ставка)</span>
+                <span>Учет финансов: фикса или почасовая ставка с подсчетом за день/месяц/год.</span>
             </div>
             <div class="feature-item">
                 <span class="dot red"></span>
-                <span>Встроенные фото-заметки к дням через Room архитектуру</span>
+                <span>Локальное хранение фото-заметок к рабочим дням через базу Room.</span>
             </div>
         </div>
 
-        <a href="https://github.com/staryi441/worktracker/releases/latest" class="download-btn" target="_blank">
-            Скачать APK
-        </a>
+        <div class="download-container">
+            <a href="https://github.com/staryi441/worktracker/releases/latest/download/WorkTracker.apk" class="btn btn-github">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.162 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+                </svg>
+                Скачать APK (GitHub)
+            </a>
 
-        <a href="https://github.com/staryi441" class="source-btn" target="_blank">Исходный код на GitHub</a>
+            <a href="https://apps.rustore.ru/app/org.staryi.mcmp" class="btn btn-rustore" target="_blank">
+                <svg viewBox="0 0 24 24">
+                    <path d="M5 3l14 9-14 9V3z"/>
+                </svg>
+                Установить из RuStore
+            </a>
+        </div>
+
+        <p class="update-note">Версия с GitHub скачивает файл напрямую. Версия из RuStore поддерживает автоматические фоновые обновления штатным клиентом.</p>
     </div>
 
 </body>
