@@ -88,27 +88,6 @@
             text-align: justify;
         }
 
-        /* Галерея скриншотов без пустот */
-        .screenshot-gallery {
-            display: flex;
-            gap: 12px;
-            overflow-x: auto;
-            margin: 0 0 24px 0;
-            padding-bottom: 8px;
-            scrollbar-width: thin;
-            scrollbar-color: #222222 #000000;
-        }
-        .screenshot-gallery::-webkit-scrollbar { height: 4px; }
-        .screenshot-gallery::-webkit-scrollbar-track { background: #000000; }
-        .screenshot-gallery::-webkit-scrollbar-thumb { background: #222222; border-radius: 4px; }
-        
-        .screenshot-gallery img {
-            height: 220px;
-            border-radius: 12px;
-            border: 1px solid #222222;
-            background-color: #000000;
-        }
-
         /* Список возможностей */
         .features {
             display: flex;
@@ -206,12 +185,6 @@
         <p class="project-about">
             <strong>WorkTracker</strong> — это персональный инструмент для автоматизации учета рабочих смен и контроля личных финансов. Приложение разработано для тех, кто работает по гибкому или циклическому графику и нуждается в надежном локальном трекере без перегруженного интерфейса и навязчивой рекламы.
         </p>
-
-        <div class="screenshot-gallery">
-            <img src="screen1.png" alt="Интерфейс 1">
-            <img src="screen2.png" alt="Интерфейс 2">
-            <img src="screen3.png" alt="Интерфейс 3">
-        </div>
 
         <div class="features">
             <div class="feature-item">
