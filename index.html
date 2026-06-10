@@ -28,20 +28,20 @@
         }
 
         .container {
-            max-width: 600px;
+            max-width: 1100px;
             width: 100%;
-            padding: 24px;
+            padding: 40px 24px;
             box-sizing: border-box;
             animation: fadeIn 0.4s ease-out forwards;
         }
 
         header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 48px;
         }
 
         h1 {
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 800;
             margin: 0 0 8px 0;
             letter-spacing: -0.5px;
@@ -49,10 +49,79 @@
 
         .subtitle {
             color: #888888;
-            font-size: 14px;
+            font-size: 15px;
             margin: 0;
         }
 
+        /* Двухколоночный Grid-лауаут */
+        .layout-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* БЛОК NEOFETCH */
+        .neofetch-panel {
+            background-color: #050505;
+            border: 1px solid #1a1a1a;
+            border-radius: 16px;
+            padding: 24px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 13px;
+            line-height: 1.5;
+            display: flex;
+            gap: 24px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Левая часть Neofetch (ASCII Арт) */
+        .neofetch-ascii {
+            color: #00E5FF; /* Синий неон */
+            white-space: pre;
+            font-weight: bold;
+            user-select: none;
+        }
+
+        /* Правая часть Neofetch (Инфо) */
+        .neofetch-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .neofetch-user {
+            color: #00E5FF;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .neofetch-sep {
+            color: #666666;
+            margin-bottom: 4px;
+        }
+
+        .neofetch-line {
+            margin-bottom: 2px;
+            white-space: nowrap;
+        }
+
+        .neofetch-label {
+            color: #00E5FF;
+            font-weight: bold;
+        }
+
+        /* Цветовая палитра терминала снизу */
+        .neofetch-palette {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .palette-block {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+        }
+
+        /* СПИСОК ПРОЕКТОВ (ПРАВАЯ КОЛОНКА) */
         .projects-list {
             display: flex;
             flex-direction: column;
@@ -66,11 +135,12 @@
             padding: 20px;
             text-decoration: none;
             color: #FFFFFF;
-            transition: border-color 0.2s ease, transform 0.2s ease;
+            transition: border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
         }
 
         .project-card:hover {
             border-color: #00E5FF;
+            background-color: #151515;
             transform: translateY(-2px);
         }
 
@@ -108,9 +178,25 @@
 
         footer {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 48px;
             color: #444444;
             font-size: 12px;
+        }
+
+        /* Адаптивность для мобилок (всё перестраивается в одну колонку) */
+        @media (max-width: 868px) {
+            .layout-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .neofetch-panel {
+                flex-direction: column;
+                gap: 16px;
+                align-items: flex-start;
+            }
+            .neofetch-ascii {
+                line-height: 1.2;
+            }
         }
     </style>
 </head>
@@ -122,23 +208,68 @@
             <p class="subtitle">Системное администрирование & Разработка приложений</p>
         </header>
 
-        <main class="projects-list">
-            <a href="./worktracker/" class="project-card">
-                <div class="project-title">
-                    WorkTracker
-                    <span class="status-badge">Сайт</span>
+        <div class="layout-grid">
+            
+            <section class="neofetch-panel">
+                <div class="neofetch-ascii">
+    ______
+  /  __  \
+ |  /  \  |
+ |  |  |  |
+ |  \__/  |
+  \______/
+  /      \
+ |  O  O  |
+ |   __   |
+  \______/
                 </div>
-                <p class="project-desc">Android-приложение для учета рабочих смен, расчета заработной платы и фото-заметок. Реализовано на Jetpack Compose и Room.</p>
-            </a>
 
-            <a href="https://github.com/staryi441" class="project-card" target="_blank">
-                <div class="project-title">
-                    Остальные проекты
-                    <span class="status-badge info">GitHub</span>
+                <div class="neofetch-info">
+                    <span class="neofetch-user">artem@staryi441</span>
+                    <span class="neofetch-sep">----------------</span>
+                    <div class="neofetch-line"><span class="neofetch-label">OS:</span> GitHub Pages / Android Sandbox</div>
+                    <div class="neofetch-line"><span class="neofetch-label">Host:</span> Laptop (i5-1235U) / POCO F6 Pro</div>
+                    <div class="neofetch-line"><span class="neofetch-label">Kernel:</span> KMM / Jetpack Compose</div>
+                    <div class="neofetch-line"><span class="neofetch-label">Uptime:</span> 18 years and counting</div>
+                    <div class="neofetch-line"><span class="neofetch-label">Shell:</span> POSIX / ADB Shell / Git</div>
+                    <div class="neofetch-line"><span class="neofetch-label">Display:</span> AMOLED True Black (100% #000)</div>
+                    <div class="neofetch-line"><span class="neofetch-label">DE/WM:</span> Android Studio / VS Code</div>
+                    <div class="neofetch-line"><span class="neofetch-label">Terminal:</span> Termux / Oh-My-Zsh</div>
+                    <div class="neofetch-line"><span class="neofetch-label">Stack:</span> Kotlin, Python, Docker, SQL</div>
+                    <div class="neofetch-line"><span class="neofetch-label">Net-Tools:</span> sing-box, VLESS, Reality</div>
+                    <div class="neofetch-line"><span class="neofetch-label">Hardware:</span> ESP32-S3, STM32, Arduino</div>
+                    
+                    <div class="neofetch-palette">
+                        <div class="palette-block" style="background-color: #000000; border: 1px solid #333;"></div>
+                        <div class="palette-block" style="background-color: #FF1744;"></div>
+                        <div class="palette-block" style="background-color: #00E676;"></div>
+                        <div class="palette-block" style="background-color: #FFEA00;"></div>
+                        <div class="palette-block" style="background-color: #00E5FF;"></div>
+                        <div class="palette-block" style="background-color: #D500F9;"></div>
+                        <div class="palette-block" style="background-color: #FFFFFF;"></div>
+                    </div>
                 </div>
-                <p class="project-desc">Разработки в сфере Android reverse engineering, кастомные VPN решения (sing-box/VLESS) и DIY электроника.</p>
-            </a>
-        </main>
+            </section>
+
+            <main class="projects-list">
+                <a href="./worktracker/" class="project-card">
+                    <div class="project-title">
+                        WorkTracker
+                        <span class="status-badge">Сайт</span>
+                    </div>
+                    <p class="project-desc">Android-приложение для учета рабочих смен, расчета заработной платы и фото-заметок. Реализовано на Jetpack Compose и Room.</p>
+                </a>
+
+                <a href="https://github.com/staryi441" class="project-card" target="_blank">
+                    <div class="project-title">
+                        Остальные проекты
+                        <span class="status-badge info">GitHub</span>
+                    </div>
+                    <p class="project-desc">Разработки в сфере Android reverse engineering, кастомные VPN решения (sing-box/VLESS) и DIY электроника.</p>
+                </a>
+            </main>
+
+        </div>
 
         <footer>
             <p>© 2026 staryi441</p>
