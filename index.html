@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staryi Dev Hub</title>
+    <style>
+        /* Полный AMOLED Black */
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            padding: 24px;
+            box-sizing: border-box;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 800;
+            margin: 0 0 8px 0;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            color: #888888;
+            font-size: 15px;
+            margin: 0;
+        }
+
+        /* Список проектов */
+        .projects-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* Карточка проекта */
+        .project-card {
+            background-color: #121212;
+            border: 1px solid #222222;
+            border-radius: 16px;
+            padding: 20px;
+            text-decoration: none;
+            color: #FFFFFF;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        /* Эффект при наведении (Неоновый Cyan) */
+        .project-card:hover {
+            border-color: #00E5FF;
+            transform: translateY(-2px);
+        }
+
+        .project-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Индикатор статуса (Зеленый для готовых к просмотру сайтов) */
+        .status-badge {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 8px;
+            border-radius: 20px;
+            background-color: rgba(0, 230, 118, 0.15);
+            color: #00E676;
+        }
+
+        .status-badge.info {
+            background-color: rgba(0, 229, 255, 0.15);
+            color: #00E5FF;
+        }
+
+        .project-desc {
+            color: #888888;
+            font-size: 14px;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #444444;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>staryi441</h1>
+            <p class="subtitle">Системное администрирование & Разработка приложений</p>
+        </header>
+
+        <main class="projects-list">
+            <a href="./worktracker/" class="project-card">
+                <div class="project-title">
+                    WorkTracker
+                    <span class="status-badge">Сайт</span>
+                </div>
+                <p class="project-desc">Android-приложение для учета рабочих смен, расчета заработной платы и фото-заметок. Реализовано на Jetpack Compose и Room.</p>
+            </a>
+
+            <a href="https://github.com/staryi441/ayumi" class="project-card" target="_blank">
+                <div class="project-title">
+                    Ayumi AI
+                    <span class="status-badge info">Репозиторий</span>
+                </div>
+                <p class="project-desc">Локальный ИИ-ассистент на базе Phi-4 mini с кастомным графическим интерфейсом, графами памяти и голосовым синтезом.</p>
+            </a>
+
+            <a href="https://github.com/staryi441" class="project-card" target="_blank">
+                <div class="project-title">
+                    Остальные проекты
+                    <span class="status-badge info">GitHub</span>
+                </div>
+                <p class="project-desc">Разработки в сфере Android reverse engineering, кастомные VPN решения (sing-box/VLESS) и DIY электроника.</p>
+            </a>
+        </main>
+
+        <footer>
+            <p>© 2026 Observer Mode. Hands released.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
