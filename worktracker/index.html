@@ -24,22 +24,26 @@
             color: #00E5FF;
             text-decoration: none;
             font-size: 14px;
-            margin-bottom: 30px;
+            margin-bottom: 24px;
             transition: opacity 0.2s ease;
         }
         .back-link:hover { opacity: 0.8; }
 
-        /* Карточка приложения */
+        /* Контейнер-карточка */
         .app-card {
-            max-width: 480px;
+            max-width: 520px;
             width: 100%;
             background-color: #121212;
             border: 1px solid #222222;
             border-radius: 24px;
             padding: 32px;
             box-sizing: border-box;
-            text-align: center;
             box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+        }
+
+        .app-header {
+            text-align: center;
+            margin-bottom: 24px;
         }
 
         h1 {
@@ -57,23 +61,34 @@
             background-color: rgba(0, 229, 255, 0.1);
             padding: 4px 12px;
             border-radius: 20px;
-            margin-bottom: 24px;
+        }
+
+        /* Полноценное описание проекта */
+        .project-about {
+            font-size: 15px;
+            line-height: 1.5;
+            color: #BBBBBB;
+            margin: 0 0 24px 0;
+            text-align: justify;
         }
 
         /* Список возможностей */
         .features {
-            text-align: left;
-            margin: 24px 0 32px 0;
             display: flex;
             flex-direction: column;
             gap: 14px;
+            margin-bottom: 32px;
+            background: #080808;
+            padding: 16px;
+            border-radius: 16px;
+            border: 1px solid #1a1a1a;
         }
 
         .feature-item {
             display: flex;
             align-items: flex-start;
             gap: 12px;
-            font-size: 15px;
+            font-size: 14.5px;
             color: #E0E0E0;
             line-height: 1.4;
         }
@@ -87,16 +102,15 @@
         }
         .dot.blue { background-color: #00E5FF; }
         .dot.green { background-color: #00E676; }
-        .dot.red { background-color: #FFFF1744; }
+        .dot.red { background-color: #FF1744; }
 
-        /* Контейнер кнопок скачивания */
+        /* Контейнер кнопок */
         .download-container {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
 
-        /* Общий стиль для кнопок */
         .btn {
             display: flex;
             align-items: center;
@@ -111,42 +125,35 @@
             box-sizing: border-box;
         }
 
-        .btn:active {
-            transform: scale(0.98);
-        }
+        .btn:active { transform: scale(0.98); }
 
-        /* Кнопка GitHub (Прямая загрузка APK) */
-        .btn-github {
-            background-color: #FFFFFF;
-            color: #000000;
-        }
-        .btn-github:hover {
-            background-color: #E5E5E5;
-        }
+        .btn-github { background-color: #FFFFFF; color: #000000; }
+        .btn-github:hover { background-color: #E5E5E5; }
 
-        /* Кнопка RuStore (Стиль под неон стора) */
-        .btn-rustore {
-            background-color: transparent;
-            color: #FFFFFF;
-            border: 1px solid #00E5FF;
-        }
-        .btn-rustore:hover {
-            background-color: rgba(0, 229, 255, 0.05);
-        }
+        .btn-rustore { background-color: transparent; color: #FFFFFF; border: 1px solid #00E5FF; }
+        .btn-rustore:hover { background-color: rgba(0, 229, 255, 0.05); }
 
-        /* Иконки встроенные через SVG, чтобы не грузить картинки */
-        .btn svg {
-            width: 20px;
-            height: 20px;
-            fill: currentColor;
-        }
+        .btn svg { width: 20px; height: 20px; fill: currentColor; }
 
-        .update-note {
-            margin-top: 20px;
+        /* Компактный и информативный футер */
+        .app-footer {
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid #222222;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             font-size: 12px;
-            color: #666666;
-            line-height: 1.4;
         }
+
+        .privacy-link {
+            color: #888888;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .privacy-link:hover { color: #00E5FF; }
+
+        .copyright { color: #555555; }
     </style>
 </head>
 <body>
@@ -154,45 +161,50 @@
     <a href="../" class="back-link">← Назад к хабу</a>
 
     <div class="app-card">
-        <h1>WorkTracker</h1>
-        <div class="version-badge">Актуальный релиз</div>
+        <div class="app-header">
+            <h1>WorkTracker</h1>
+            <div class="version-badge">Актуальный релиз</div>
+        </div>
+
+        <p class="project-about">
+            <strong>WorkTracker</strong> — это персональный инструмент для автоматизации учета рабочих смен и контроля личных финансов. Приложение разработано для тех, кто работает по гибкому или циклическому графику и нуждается в надежном локальном трекере без перегруженного интерфейса и навязчивой рекламы.
+        </p>
 
         <div class="features">
             <div class="feature-item">
                 <span class="dot blue"></span>
-                <span>Чистый AMOLED интерфейс без скрытых рамок и линий.</span>
+                <span><strong>AMOLED Эстетика:</strong> Идеальный черный фон без паразитных системных обводок и скрытых рамок Material 3.</span>
             </div>
             <div class="feature-item">
                 <span class="dot green"></span>
-                <span>Автогенерация смен вперед по паттернам (3/2, 5/2, кастом).</span>
+                <span><strong>Умные шаблоны:</strong> Автоматическое заполнение календаря вперед по паттернам смен (3/2, 5/2 или индивидуальный кастом).</span>
             </div>
             <div class="feature-item">
                 <span class="dot green"></span>
-                <span>Учет финансов: фикса или почасовая ставка с подсчетом за день/месяц/год.</span>
+                <span><strong>Гибкий расчет ЗП:</strong> Поддержка фиксированной оплаты за выход либо почасовой ставки с детализацией за день/месяц/год.</span>
             </div>
             <div class="feature-item">
                 <span class="dot red"></span>
-                <span>Локальное хранение фото-заметок к рабочим дням через базу Room.</span>
+                <span><strong>Фото-архив:</strong> Привязка фото-заметок и текстовых описаний к конкретным дням с локальным хранением в базе данных Room.</span>
             </div>
         </div>
 
         <div class="download-container">
             <a href="https://github.com/staryi441/worktracker/releases/latest/download/WorkTracker.apk" class="btn btn-github">
-                <svg viewBox="0 0 24 24">
-                    <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.162 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
-                </svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.162 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
                 Скачать APK (GitHub)
             </a>
 
-            <a href="https://apps.rustore.ru/app/com.staryi.worktracker" class="btn btn-rustore" target="_blank">
-                <svg viewBox="0 0 24 24">
-                    <path d="M5 3l14 9-14 9V3z"/>
-                </svg>
+            <a href="https://apps.rustore.ru/app/org.staryi.mcmp" class="btn btn-rustore" target="_blank">
+                <svg viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>
                 Установить из RuStore
             </a>
         </div>
 
-        <p class="update-note">Версия с GitHub скачивает файл напрямую. Версия из RuStore поддерживает автоматические фоновые обновления штатным клиентом.</p>
+        <div class="app-footer">
+            <span class="copyright">© 2026 staryi441</span>
+            <a href="./privacy.html" class="privacy-link">Политика конфиденциальности</a>
+        </div>
     </div>
 
 </body>
