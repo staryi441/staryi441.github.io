@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Design & Art — Подробный разбор скилла</title>
+    
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <style>
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .skill-card-detailed {
+            max-width: 680px;
+            width: 100%;
+            background-color: #121212;
+            border: 1px solid #222222;
+            border-radius: 24px;
+            padding: 32px;
+            box-sizing: border-box;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        .back-link {
+            color: #8B00FF;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 20px;
+            transition: opacity 0.2s ease;
+        }
+        .back-link:hover { opacity: 0.8; }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 800;
+            margin: 0 0 12px 0;
+            letter-spacing: -0.5px;
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background-color: rgba(139, 0, 255, 0.15);
+            color: #8B00FF;
+            padding: 4px 10px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        p, li {
+            color: #CCCCCC;
+            font-size: 14.5px;
+            line-height: 1.6;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #8B00FF;
+            margin: 28px 0 12px 0;
+            border-left: 3px solid #8B00FF;
+            padding-left: 10px;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin: 8px 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Блок внешних ссылок */
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        .btn-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            padding: 14px;
+            border-radius: 12px;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+            box-sizing: border-box;
+            background-color: transparent;
+            color: #FFFFFF;
+            border: 1px solid #8B00FF;
+        }
+
+        .btn-link:hover {
+            background-color: rgba(139, 0, 255, 0.08);
+        }
+
+        .btn-link.primary {
+            background-color: #FFFFFF;
+            color: #000000;
+            border: 1px solid #FFFFFF;
+        }
+
+        .btn-link.primary:hover {
+            background-color: #E5E5E5;
+        }
+
+        .btn-link svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="skill-card-detailed">
+        <a href="../" class="back-link">← К списку скиллов</a>
+        
+        <h1>AI Design & Art</h1>
+        <div class="badge">Генерация графики</div>
+
+        <p>
+            Этот скилл включает в себя глубокое понимание работы диффузионных моделей, генерацию интерфейсов, концепт-артов, кастомных текстур, а также контроль над композицией и стилистикой изображений с использованием ControlNet и Lora.
+        </p>
+
+        <h2>Основные направления</h2>
+        <ul>
+            <li><strong>Генерация UI/UX элементов:</strong> Быстрое прототипирование макетов приложений, иконок для баджей и элементов интерфейса в True Black стиле.</li>
+            <li><strong>Inpainting & Outpainting:</strong> Локальное редактирование сгенерированных картинок, дорисовка краев и замена отдельных деталей без изменения общей композиции.</li>
+            <li><strong>Построение точных промптов:</strong> Использование весов, негативных промптов и параметров генерации (CFG Scale, Steps).</li>
+        </ul>
+
+        <h2>Используемые инструменты</h2>
+        <p>Для реализации скилла применяются как опенсорсные локальные решения, так и облачные платформы:</p>
+        <ul>
+            <li>Midjourney / Recraft — для быстрой и качественной векторной или растровой графики.</li>
+            <li>Stable Diffusion (WebUI / ComfyUI) — для полного локального контроля над генерацией.</li>
+        </ul>
+
+        <h2>Полезные ресурсы</h2>
+        <div class="links-container">
+            <a href="https://comfyanonymous.github.io/ComfyUI/" class="btn-link primary" target="_blank">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                Официальный сайт ComfyUI
+            </a>
+
+            <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui" class="btn-link" target="_blank">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.162 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                Stable Diffusion WebUI на GitHub
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

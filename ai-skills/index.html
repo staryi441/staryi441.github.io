@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Skills Hub — База знаний</title>
+    
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <style>
+        /* AMOLED True Black */
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        .back-link {
+            color: #8B00FF;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 32px;
+            transition: opacity 0.2s ease;
+        }
+        .back-link:hover { opacity: 0.8; }
+
+        header {
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 800;
+            margin: 0 0 8px 0;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            color: #888888;
+            font-size: 15px;
+            margin: 0;
+        }
+
+        /* Секции категорий */
+        .category-section {
+            margin-bottom: 36px;
+        }
+
+        .category-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #8B00FF;
+            margin-bottom: 16px;
+            border-left: 3px solid #8B00FF;
+            padding-left: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Сетка скиллов */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 16px;
+        }
+
+        .skill-card {
+            background-color: #121212;
+            border: 1px solid #222222;
+            border-radius: 16px;
+            padding: 20px;
+            text-decoration: none;
+            color: #FFFFFF;
+            transition: border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .skill-card:hover {
+            border-color: #8B00FF;
+            background-color: #151515;
+            transform: translateY(-2px);
+        }
+
+        .skill-name {
+            font-size: 16px;
+            font-weight: 700;
+            margin-0: 0 0 6px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .skill-desc {
+            color: #AAAAAA;
+            font-size: 13px;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .arrow {
+            color: #444444;
+            transition: color 0.2s ease;
+        }
+        .skill-card:hover .arrow {
+            color: #8B00FF;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 48px;
+            color: #444444;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="../" class="back-link">← Назад к хабу</a>
+        
+        <header>
+            <h1>AI Skills Collection</h1>
+            <p class="subtitle">Систематизированный сборник скиллов, инструментов и практик для работы с нейросетями</p>
+        </header>
+
+        <section class="category-section">
+            <div class="category-title">Дизайн & Генерация</div>
+            <div class="skills-grid">
+                
+                <a href="./design/" class="skill-card">
+                    <div class="skill-name">
+                        AI Design & Art
+                        <span class="arrow">→</span>
+                    </div>
+                    <p class="skill-desc">Генерация интерфейсов, концепт-артов, текстур и управление диффузионными моделями.</p>
+                </a>
+
+                <a href="./video-generation/" class="skill-card">
+                    <div class="skill-name">
+                        Video & Motion
+                        <span class="arrow">→</span>
+                    </div>
+                    <p class="skill-desc">Создание бесшовных видеороликов, анимация статичных изображений через Sora / Runway.</p>
+                </a>
+
+            </div>
+        </section>
+
+        <section class="category-section">
+            <div class="category-title">Разработка & Автоматизация</div>
+            <div class="skills-grid">
+
+                <a href="./ai-dev/" class="skill-card">
+                    <div class="skill-name">
+                        LLM Integration
+                        <span class="arrow">→</span>
+                    </div>
+                    <p class="skill-desc">Подключение API локальных и облачных моделей, построение ИИ-ассистентов и MCP-серверов.</p>
+                </a>
+
+            </div>
+        </section>
+
+        <section class="category-section">
+            <div class="category-title">Промпт-инжиниринг</div>
+            <div class="skills-grid">
+
+                <a href="./prompting/" class="skill-card">
+                    <div class="skill-name">
+                        Advanced Prompting
+                        <span class="arrow">→</span>
+                    </div>
+                    <p class="skill-desc">Техники Chain-of-Thought, Few-Shot, управление контекстными окнами и системными промптами.</p>
+                </a>
+
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2026 staryi441</p>
+        </footer>
+    </div>
+
+</body>
+</html>
