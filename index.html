@@ -53,75 +53,85 @@
             margin: 0;
         }
 
-        /* Двухколоночный Grid-лауаут */
-        .layout-grid {
+        /* Двухколоночный макет для десктопов */
+        .layout {
             display: grid;
-            grid-template-columns: 1.1fr 1fr;
-            gap: 40px;
+            grid-template-columns: 1fr;
+            gap: 32px;
             align-items: start;
         }
 
-        /* БЛОК NEOFETCH */
+        @media (min-width: 850px) {
+            .layout {
+                grid-template-columns: 420px 1fr;
+            }
+        }
+
+        /* --- ЛЕВАЯ КОЛОНКА: NEOFETCH --- */
         .neofetch-panel {
-            background-color: #050505;
-            border: 1px solid #1a1a1a;
-            border-radius: 16px;
+            background-color: #121212;
+            border: 1px solid #222222;
+            border-radius: 20px;
             padding: 24px;
-            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-            font-size: 13px;
-            line-height: 1.5;
             display: flex;
             gap: 24px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
         }
 
-        /* Левая часть Neofetch (ASCII Арт) */
+        /* ASCII логотип */
         .neofetch-ascii {
-            color: #8B00FF; /* Фиолетовый неон */
-            white-space: pre;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 13px;
             font-weight: bold;
-            user-select: none;
+            color: #8B00FF;
+            white-space: pre;
+            line-height: 1.1;
         }
 
-        /* Правая часть Neofetch (Инфо) */
+        /* Инфо блок */
         .neofetch-info {
             display: flex;
             flex-direction: column;
+            gap: 4px;
+            font-size: 13.5px;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         .neofetch-user {
-            color: #8B00FF;
             font-weight: bold;
-            font-size: 14px;
+            color: #8B00FF;
         }
+
         .neofetch-sep {
-            color: #666666;
-            margin-bottom: 4px;
+            color: #444444;
+            letter-spacing: -1px;
+            margin-bottom: 2px;
         }
 
         .neofetch-line {
-            margin-bottom: 2px;
-            white-space: nowrap;
+            color: #EEEEEE;
         }
 
         .neofetch-label {
             color: #8B00FF;
-            font-weight: bold;
+            font-weight: 600;
+            margin-right: 4px;
         }
 
-        /* Цветовая палитра терминала снизу */
+        /* Палитра */
         .neofetch-palette {
             display: flex;
-            gap: 8px;
-            margin-top: 12px;
-        }
-        .palette-block {
-            width: 12px;
-            height: 12px;
-            border-radius: 2px;
+            gap: 6px;
+            margin-top: 10px;
         }
 
-        /* СПИСОК ПРОЕКТОВ (ПРАВАЯ КОЛОНКА) */
+        .palette-block {
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+        }
+
+        /* --- ПРАВАЯ КОЛОНКА: СПИСОК ПРОЕКТОВ --- */
         .projects-list {
             display: flex;
             flex-direction: column;
@@ -131,11 +141,11 @@
         .project-card {
             background-color: #121212;
             border: 1px solid #222222;
-            border-radius: 16px;
-            padding: 20px;
+            border-radius: 18px;
+            padding: 24px;
             text-decoration: none;
             color: #FFFFFF;
-            transition: border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+            transition: border-color 0.2s ease, transform 0.1s ease, background-color 0.2s ease;
         }
 
         .project-card:hover {
@@ -147,26 +157,31 @@
         .project-title {
             font-size: 18px;
             font-weight: 700;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .status-badge {
             font-size: 11px;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            background-color: rgba(139, 0, 255, 0.15);
             color: #8B00FF;
+            background-color: rgba(139, 0, 255, 0.15);
             padding: 4px 10px;
             border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .status-badge.info {
-            background-color: rgba(255, 255, 255, 0.05);
-            color: #888888;
+            color: #00E676;
+            background-color: rgba(0, 230, 118, 0.1);
+        }
+
+        .status-badge.hub {
+            color: #FFEA00;
+            background-color: rgba(255, 234, 0, 0.1);
         }
 
         .project-desc {
@@ -182,22 +197,6 @@
             color: #444444;
             font-size: 12px;
         }
-
-        /* Адаптивность для мобилок */
-        @media (max-width: 868px) {
-            .layout-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-            .neofetch-panel {
-                flex-direction: column;
-                gap: 16px;
-                align-items: flex-start;
-            }
-            .neofetch-ascii {
-                line-height: 1.2;
-            }
-        }
     </style>
 </head>
 <body>
@@ -208,7 +207,7 @@
             <p class="subtitle">Системное администрирование & Разработка приложений</p>
         </header>
 
-        <div class="layout-grid">
+        <div class="layout">
             
             <section class="neofetch-panel">
 
@@ -220,6 +219,7 @@
                     <div class="neofetch-line"><span class="neofetch-label">Host:</span> Laptop (i5-1235U) / POCO F6 Pro</div>
                     <div class="neofetch-line"><span class="neofetch-label">Kernel:</span> KMM / Jetpack Compose / Room</div>
                     <div class="neofetch-line"><span class="neofetch-label">Shell:</span> CMD (Command Prompt)</div>
+                    <div class="neofetch-line"><span class="neofetch-label">Display:</span> AMOLED True Black (100% #000)</div>
                     <div class="neofetch-line"><span class="neofetch-label">DE/WM:</span> Android Studio / VS Code</div>
                     <div class="neofetch-line"><span class="neofetch-label">Languages:</span> Kotlin, Python, Go, Dart</div>
                     <div class="neofetch-line"><span class="neofetch-label">Net-Tools:</span> sing-box, VLESS, Reality</div>
@@ -228,12 +228,21 @@
             </section>
 
             <main class="projects-list">
+                
                 <a href="./worktracker/" class="project-card">
                     <div class="project-title">
                         WorkTracker
                         <span class="status-badge">Сайт</span>
                     </div>
                     <p class="project-desc">Android-приложение для учета рабочих смен, расчета заработной платы и фото-заметок. Реализовано на Jetpack Compose и Room.</p>
+                </a>
+
+                <a href="./ai-skills/" class="project-card">
+                    <div class="project-title">
+                        AI Skills Hub
+                        <span class="status-badge hub">База знаний</span>
+                    </div>
+                    <p class="project-desc">Систематизированный сборник практик, промпт-инжиниринга и интеграции локальных и облачных нейросетей.</p>
                 </a>
 
                 <a href="https://github.com/staryi441" class="project-card" target="_blank">
@@ -243,6 +252,7 @@
                     </div>
                     <p class="project-desc">Разработки в сфере Android reverse engineering, кастомные VPN решения (sing-box/VLESS) и DIY электроника.</p>
                 </a>
+                
             </main>
 
         </div>
