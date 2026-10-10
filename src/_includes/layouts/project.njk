@@ -1,0 +1,68 @@
+{% extends "layouts/base.njk" %}
+
+{% set canonicalUrl = "https://staryi441.github.io" + page.url %}
+{% set ogTitle = title %}
+{% set ogDescription = description %}
+{% set ogImage = "https://staryi441.github.io/favicon.png" %}
+
+{% set jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": title,
+  "description": description,
+  "applicationCategory": category or "DeveloperApplication",
+  "operatingSystem": os or "Android",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Artem (staryi441)",
+    "url": "https://github.com/staryi441"
+  },
+  "datePublished": releaseDate,
+  "dateModified": updateDate or releaseDate
+} | dump_json %}
+
+{% block body %}
+<a href="/" class="back-link animate-fade-in">← Назад к хабу</a>
+
+<article class="app-card card animate-fade-in">
+  <header class="app-header">
+    <h1>{{ title }}</h1>
+    {% if version %}<div class="version-badge badge badge-accent">{{ version }}</div>{% endif %}
+  </header>
+
+  <div class="project-about">{{ content | safe }}</div>
+
+  {% if features %}
+  <div class="features">
+    {% for feature in features %}
+    <div class="feature-item">
+      <span class="feature-dot {% if feature.type %}{{ feature.type }}{% endif %}"></span>
+      <span>{{ feature.text | safe }}</span>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if downloads %}
+  <div class="download-container">
+    {% for download in downloads %}
+    <a href="{{ download.url }}" class="btn {% if download.primary %}btn-primary{% else %}btn-secondary{% endif %}" {% if download.external %}target="_blank" rel="noopener"{% endif %}>
+      {% if download.icon %}{{ download.icon | safe }}{% endif %}
+      {{ download.text }}
+    </a>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <footer class="app-footer">
+    <span class="copyright">© {{ buildDate.getFullYear() }} staryi441</span>
+    {% if privacyUrl %}<a href="{{ privacyUrl }}" class="privacy-link">Политика конфиденциальности</a>{% endif %}
+  </footer>
+</article>
+{% endblock %}

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- AMOLED True Black background -->
+  <rect width="32" height="32" fill="#000000"/>
+  <!-- Accent purple rounded square -->
+  <rect x="4" y="4" width="24" height="24" rx="6" fill="#8B00FF"/>
+  <!-- Inner glyph: stylized "S" / terminal prompt -->
+  <path d="M16 10c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4zm0 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z" fill="#000000"/>
+  <!-- Small accent dots -->
+  <circle cx="24" cy="8" r="2" fill="#FFEA00"/>
+  <circle cx="8" cy="24" r="2" fill="#00E676"/>
+</svg>

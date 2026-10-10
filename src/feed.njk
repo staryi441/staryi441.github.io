@@ -1,0 +1,40 @@
+---
+permalink: feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ru">
+  <title>Staryi Dev Hub</title>
+  <subtitle>Новые проекты и обновления: Android, C#/.NET, AI и DIY электроника</subtitle>
+  <link href="{{ site.url }}/feed.xml" rel="self"/>
+  <link href="{{ site.url }}/"/>
+  <updated>{{ (collections.projects[0].data.updateDate or collections.projects[0].data.releaseDate) | isoDate }}</updated>
+  <id>{{ site.url }}/</id>
+  <author>
+    <name>Artem (staryi441)</name>
+    <uri>{{ site.author.github }}</uri>
+  </author>
+  <generator uri="https://www.11ty.dev/">Eleventy</generator>
+
+  {% for project in collections.projects %}
+  <entry>
+    <title>Проект: {{ project.data.title }}</title>
+    <link href="{{ site.url }}{{ project.url }}"/>
+    <id>{{ site.url }}{{ project.url }}</id>
+    <updated>{{ (project.data.updateDate or project.data.releaseDate) | isoDate }}</updated>
+    <summary>{{ project.data.description }}</summary>
+    <category term="{{ project.data.badge }}"/>
+  </entry>
+  {% endfor %}
+
+  {% for skill in collections.skills %}
+  <entry>
+    <title>AI Skills: {{ skill.data.title }}</title>
+    <link href="{{ site.url }}{{ skill.url }}"/>
+    <id>{{ site.url }}{{ skill.url }}</id>
+    <updated>{{ (skill.data.updated or skill.data.date) | isoDate }}</updated>
+    <summary>{{ skill.data.description }}</summary>
+    <category term="{{ skill.data.category }}"/>
+  </entry>
+  {% endfor %}
+</feed>

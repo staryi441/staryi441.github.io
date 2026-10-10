@@ -1,0 +1,8 @@
+# Security Contact for staryi441.github.io
+Contact: mailto:staryi441@proton.me
+Contact: https://github.com/staryi441
+Preferred-Languages: en, ru
+Canonical: https://staryi441.github.io/security.txt
+Policy: https://staryi441.github.io/security-policy.html
+Acknowledgments: https://staryi441.github.io/hall-of-fame.html
+Expires: 2027-10-10T00:00:00.000Z

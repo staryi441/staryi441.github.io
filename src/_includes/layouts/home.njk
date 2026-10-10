@@ -1,0 +1,87 @@
+{% extends "layouts/base.njk" %}
+
+{% set description = "Системное администрирование & Разработка приложений. Android, Kotlin, C#, .NET, Python, Go, DIY электроника, VPN, AI." %}
+{% set canonicalUrl = "https://staryi441.github.io/" %}
+{% set ogTitle = "Staryi Dev Hub" %}
+{% set ogDescription = description %}
+{% set ogImage = "https://staryi441.github.io/favicon.png" %}
+
+{% set jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Staryi Dev Hub",
+  "url": "https://staryi441.github.io/",
+  "description": description,
+  "author": {
+    "@type": "Person",
+    "name": "Artem (staryi441)",
+    "url": "https://github.com/staryi441"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://staryi441.github.io/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+} | dump_json %}
+
+{% block body %}
+<div class="container animate-fade-in">
+  <header class="site-header">
+    <h1 class="site-title">staryi441</h1>
+    <p class="site-subtitle">Системное администрирование & Разработка приложений</p>
+  </header>
+
+  <div class="layout grid-2">
+    <!-- Neofetch Panel -->
+    <section class="neofetch-panel animate-fade-in" style="animation-delay: 0.1s;">
+      <div class="neofetch-info">
+        <span class="neofetch-user">artem@staryi441</span>
+        <span class="neofetch-sep">----------------</span>
+        <div class="neofetch-line"><span class="neofetch-label">OS:</span> Windows 11 Pro</div>
+        <div class="neofetch-line"><span class="neofetch-label">Subsystems:</span> WSL2 / Docker Container</div>
+        <div class="neofetch-line"><span class="neofetch-label">Host:</span> Laptop (i5-1235U) / POCO F6 Pro</div>
+        <div class="neofetch-line"><span class="neofetch-label">Kernel:</span> KMM / Jetpack Compose / Room</div>
+        <div class="neofetch-line"><span class="neofetch-label">Shell:</span> CMD (Command Prompt)</div>
+        <div class="neofetch-line"><span class="neofetch-label">Display:</span> AMOLED True Black (100% #000)</div>
+        <div class="neofetch-line"><span class="neofetch-label">DE/WM:</span> Android Studio / VS Code</div>
+        <div class="neofetch-line"><span class="neofetch-label">Languages:</span> Kotlin, Python, Go, Dart</div>
+        <div class="neofetch-line"><span class="neofetch-label">Net-Tools:</span> sing-box, VLESS, Reality</div>
+        <div class="neofetch-line"><span class="neofetch-label">Hardware:</span> ESP32-S3 / DIY Electronics</div>
+      </div>
+    </section>
+
+    <!-- Projects List -->
+    <main class="projects-list">
+      {% for project in collections.projects %}
+      <a href="{{ project.url }}" class="project-card card card-interactive animate-fade-in" style="animation-delay: {{ (loop.index * 0.05) | round(2) }}s;">
+        <div class="project-title">
+          {{ project.data.title }}
+          <span class="badge {% if project.data.badgeClass %}{{ project.data.badgeClass }}{% else %}badge-accent{% endif %}">{{ project.data.badge }}</span>
+        </div>
+        <p class="project-desc">{{ project.data.description }}</p>
+      </a>
+      {% endfor %}
+      
+      <a href="/ai-skills/" class="project-card card card-interactive animate-fade-in" style="animation-delay: {{ ((collections.projects.length + 1) * 0.05) | round(2) }}s;">
+        <div class="project-title">
+          AI Skills Hub
+          <span class="badge badge-hub">База знаний</span>
+        </div>
+        <p class="project-desc">Систематизированный сборник практик, промпт-инжиниринга и интеграции локальных и облачных нейросетей.</p>
+      </a>
+
+      <a href="https://github.com/staryi441" class="project-card card card-interactive animate-fade-in" target="_blank" rel="noopener">
+        <div class="project-title">
+          Остальные проекты
+          <span class="badge badge-info">GitHub</span>
+        </div>
+        <p class="project-desc">Разработки в сфере Android reverse engineering, кастомные VPN решения (sing-box/VLESS) и DIY электроника.</p>
+      </a>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>© {{ buildDate.getFullYear() }} staryi441</p>
+  </footer>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "layouts/base.njk" %}
+
+{% set title = "404 — Страница не найдена" %}
+{% set description = "Кажется, этой страницы не существует или проект был перенесен." %}
+{% set canonicalUrl = "https://staryi441.github.io/404.html" %}
+
+{% block body %}
+<div class="flex-center">
+  <div class="error-container animate-fade-in">
+    <h1>404</h1>
+    <p>Кажется, этой страницы не существует или проект был перенесен.</p>
+    <a href="/">Вернуться в Хаб</a>
+  </div>
+</div>
+{% endblock %}

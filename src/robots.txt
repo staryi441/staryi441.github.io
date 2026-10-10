@@ -1,0 +1,13 @@
+# robots.txt for Staryi Dev Hub
+User-agent: *
+Allow: /
+
+Sitemap: https://staryi441.github.io/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 10
+
+# Disallow admin/private paths (none in static site)
+# Disallow: /_site/
+# Disallow: /src/
+# Disallow: /node_modules/

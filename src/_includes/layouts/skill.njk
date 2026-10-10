@@ -1,0 +1,45 @@
+{% extends "layouts/base.njk" %}
+
+{% set canonicalUrl = "https://staryi441.github.io" + page.url %}
+{% set ogTitle = title %}
+{% set ogDescription = description %}
+{% set ogImage = "https://staryi441.github.io/favicon.png" %}
+
+{% set jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": title,
+  "description": description,
+  "author": {
+    "@type": "Person",
+    "name": "Artem (staryi441)",
+    "url": "https://github.com/staryi441"
+  },
+  "datePublished": date,
+  "dateModified": updated or date,
+  "keywords": tags
+} | dump_json %}
+
+{% block body %}
+<div class="container">
+  <div class="skill-card-detailed card animate-fade-in">
+    <a href="/ai-skills/" class="back-link">← К списку скиллов</a>
+    
+    <h1>{{ title }}</h1>
+    <div class="badge badge-accent">{{ category }}</div>
+
+    <div class="skill-content">{{ content | safe }}</div>
+
+    {% if links %}
+    <div class="links-container">
+      {% for link in links %}
+      <a href="{{ link.url }}" class="btn-link {% if link.primary %}primary{% endif %}" target="_blank" rel="noopener">
+        {% if link.icon %}{{ link.icon | safe }}{% endif %}
+        {{ link.text }}
+      </a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

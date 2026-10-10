@@ -1,0 +1,15 @@
+{
+  "name": "Staryi Dev Hub",
+  "description": "Системное администрирование & Разработка приложений. Android, Kotlin, C#, .NET, Python, Go, DIY электроника, VPN, AI.",
+  "url": "https://staryi441.github.io/",
+  "author": {
+    "name": "Artem (staryi441)",
+    "github": "https://github.com/staryi441",
+    "email": "staryi441@proton.me"
+  },
+  "social": {
+    "github": "https://github.com/staryi441",
+    "telegram": "https://t.me/staryi441"
+  },
+  "buildDate": "2026-10-10"
+}

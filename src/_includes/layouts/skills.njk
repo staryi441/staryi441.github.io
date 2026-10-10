@@ -1,0 +1,44 @@
+{% extends "layouts/base.njk" %}
+
+{% set title = "AI Skills Hub — База знаний" %}
+{% set description = "Систематизированный сборник практик, промпт-инжиниринга и интеграции локальных и облачных нейросетей." %}
+{% set canonicalUrl = "https://staryi441.github.io/ai-skills/" %}
+{% set ogTitle = "AI Skills Hub" %}
+{% set ogDescription = description %}
+{% set ogImage = "https://staryi441.github.io/favicon.png" %}
+
+{% set jsonLd = collections.skills | skillsJsonLd %}
+
+{% block body %}
+<div class="container animate-fade-in">
+  <a href="/" class="back-link">← Назад к хабу</a>
+  
+  <header class="site-header">
+    <h1 class="site-title">AI Skills Collection</h1>
+    <p class="site-subtitle">Систематизированный сборник скиллов, инструментов и практик для работы с нейросетями</p>
+  </header>
+
+  {% set categorizedSkills = collections.skills | groupByCategory %}
+
+  {% for catName, skills in categorizedSkills %}
+  <section class="category-section animate-fade-in">
+    <div class="category-title">{{ catName }}</div>
+    <div class="skills-grid">
+      {% for skill in skills %}
+      <a href="{{ skill.url }}" class="skill-card card card-compact card-interactive">
+        <div class="skill-name">
+          {{ skill.data.title }}
+          <span class="arrow">→</span>
+        </div>
+        <p class="skill-desc">{{ skill.data.description }}</p>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endfor %}
+
+  <footer class="site-footer">
+    <p>© {{ buildDate.getFullYear() }} staryi441</p>
+  </footer>
+</div>
+{% endblock %}
