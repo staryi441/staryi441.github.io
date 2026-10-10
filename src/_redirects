@@ -1,0 +1,8 @@
+# Redirects for staryi441.github.io
+# Syntax: from  to  status
+
+# Legacy paths (if any)
+/worktracker/privacy.html  /projects/worktracker/privacy/  301
+/recoveryparser/           /projects/recoveryparser/       301
+/netchecker/               /projects/netchecker/           301
+/ai-skills/design/         /ai-skills/design/              301

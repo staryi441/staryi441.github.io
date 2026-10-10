@@ -1,0 +1,47 @@
+{
+  "name": "staryi441.github.io",
+  "version": "1.0.0",
+  "description": "Staryi Dev Hub — Personal portfolio site built with Eleventy (11ty)",
+  "main": ".eleventy.js",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy",
+    "build:prod": "eleventy",
+    "favicons": "node scripts/generate-favicons.js",
+    "lint": "npm run lint:html && npm run lint:css",
+    "lint:html": "npx --yes htmlhint \"_site/**/*.html\"",
+    "lint:css": "npx --yes stylelint \"src/assets/css/**/*.css\"",
+    "check:links": "npx --yes linkinator ./_site --recurse",
+    "preview": "npx --yes serve _site"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/staryi441/staryi441.github.io.git"
+  },
+  "keywords": [
+    "portfolio",
+    "eleventy",
+    "11ty",
+    "static-site",
+    "developer",
+    "android",
+    "kotlin",
+    "dotnet"
+  ],
+  "author": "Artem (staryi441)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/staryi441/staryi441.github.io/issues"
+  },
+  "homepage": "https://staryi441.github.io",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-plugin-rss": "^2.0.4",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+    "html-minifier-terser": "^7.2.0",
+    "sharp": "^0.33.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

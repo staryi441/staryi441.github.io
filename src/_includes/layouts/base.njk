@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if title %}{{ title }} — {% endif %}Staryi Dev Hub</title>
+  
+  <link rel="preload" as="style" href="/assets/css/main.css?v={{ buildDate.getTime() }}">
+  <link rel="stylesheet" href="/assets/css/main.css?v={{ buildDate.getTime() }}">
+  <link rel="alternate" type="application/atom+xml" title="Staryi Dev Hub" href="/feed.xml">
+  
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#000000">
+  
+  {% if description %}
+  <meta name="description" content="{{ description }}">
+  {% endif %}
+  
+  {% if canonicalUrl %}
+  <link rel="canonical" href="{{ canonicalUrl }}">
+  {% endif %}
+  
+  {% if ogTitle %}
+  <meta property="og:title" content="{{ ogTitle }}">
+  <meta property="og:description" content="{{ ogDescription or description }}">
+  <meta property="og:type" content="{{ ogType or 'website' }}">
+  <meta property="og:url" content="{{ canonicalUrl }}">
+  {% if ogImage %}<meta property="og:image" content="{{ ogImage }}">{% endif %}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ ogTitle }}">
+  <meta name="twitter:description" content="{{ ogDescription or description }}">
+  {% if ogImage %}<meta name="twitter:image" content="{{ ogImage }}">{% endif %}
+  {% endif %}
+  
+  {% if jsonLd %}
+  <script type="application/ld+json">{{ jsonLd | safe }}</script>
+  {% endif %}
+  
+  {% block headExtra %}{% endblock %}
+
+  <!-- Аналитика (раскомментируйте и укажите свой домен для Plausible)
+  <script defer data-domain="staryi441.github.io" src="https://plausible.io/js/script.js"></script>
+  -->
+</head>
+<body>
+  {% block body %}{% endblock %}
+  
+  <script>
+    // Register Service Worker for PWA
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').catch(() => {});
+    }
+  </script>
+</body>
+</html>
