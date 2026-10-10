@@ -1,9 +1,13 @@
+---
+permalink: /sw.js
+---
 /**
  * Service Worker for Staryi Dev Hub
  * Provides offline caching for static assets and pages
+ * Cache version: {{ buildDate.getTime() }}
  */
 
-const CACHE_NAME = 'staryi-hub-v1';
+const CACHE_NAME = 'staryi-hub-{{ buildDate.getTime() }}';
 const STATIC_ASSETS = [
   '/',
   '/assets/css/main.css',

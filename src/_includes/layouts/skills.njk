@@ -5,7 +5,7 @@
 {% set canonicalUrl = "https://staryi441.github.io/ai-skills/" %}
 {% set ogTitle = "AI Skills Hub" %}
 {% set ogDescription = description %}
-{% set ogImage = "https://staryi441.github.io/favicon.png" %}
+{% set ogImage = "https://staryi441.github.io/assets/images/og/ai-skills.png" %}
 
 {% set jsonLd = collections.skills | skillsJsonLd %}
 
@@ -36,9 +36,5 @@
     </div>
   </section>
   {% endfor %}
-
-  <footer class="site-footer">
-    <p>© {{ buildDate.getFullYear() }} staryi441</p>
-  </footer>
 </div>
 {% endblock %}

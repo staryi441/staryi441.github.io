@@ -3,7 +3,7 @@
 {% set canonicalUrl = "https://staryi441.github.io" + page.url %}
 {% set ogTitle = title %}
 {% set ogDescription = description %}
-{% set ogImage = "https://staryi441.github.io/favicon.png" %}
+{% set ogImage = "https://staryi441.github.io/assets/images/og/project-" + (page.fileSlug or page.filePathStem) + ".png" %}
 
 {% set jsonLd = {
   "@context": "https://schema.org",

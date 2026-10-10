@@ -20,8 +20,9 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/favicon-192.png");
   eleventyConfig.addPassthroughCopy("src/favicon-512.png");
   eleventyConfig.addPassthroughCopy("src/favicon.png");
-  eleventyConfig.addPassthroughCopy("src/sw.js");
+  eleventyConfig.addPassthroughCopy("src/assets/images");
   eleventyConfig.addPassthroughCopy("src/_redirects");
+  // sw.njk is processed as template (not passthrough) to inject build hash
 
   // Collections
   eleventyConfig.addCollection("projects", function(collectionApi) {
